@@ -1,0 +1,52 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}{{ image.title }} {{ parent() }}{% endblock %}
+{% block description %}{{ image.seoDescription }}{% endblock %}
+{% block keywords %}{% for keyword in image.seoKeywords %}{% if loop.index != 1 %}, {% endif %}{{ keyword }}{% endfor %}{% endblock %}
+
+{% block container %}
+    <div class = "panel panel-default">
+        <div class = "panel-heading">
+            {{ image.title }}
+        </div>
+        <div class = "panel-body">
+            <div class="row">
+                <div class = "col-lg-12">
+                    <a href="{{ image.relativeWebPath }}" target="_blank">
+                        <img class="img-responsive img-rounded" src="{{ image.relativeWebPath | imagine_filter('photo_seule') }}" alt="{{ image.title }}"/>
+                    </a>
+                </div>
+            </div>
+            <br />
+            <p>{{ image.comment }}</p>
+            <br />
+
+            <div class = "pull-left">
+                {% include 'SilentDailyPicsCoreBundle:Social:social.html.twig' with {image : image} %}
+            </div>
+        </div>
+    </div>
+
+    <div class = "jumbotron text-center" id = "fb_comments_box">
+
+    </div>
+
+{% endblock %}
+
+{% block javascripts %}
+    {% include 'SilentDailyPicsCoreBundle:Social:socialJavaScript.html.twig' %}
+    {% include 'SilentDailyPicsCoreBundle:Social:facebookComment.html.twig' %}
+    <script>
+        var divFbW = $('#fb_comments_box').width();
+        $(window).bind("resize", function(){
+            if (divFbW != $('#fb_comments_box').width()) {
+                fbResponsive('{{ url('silent_daily_pics_core_show', {slug: image.slug}) }}', divFbW);
+                divFbW = $('#fb_comments_box').width();
+            }
+        });
+    </script>
+{% endblock %}
+
+{% block jqueryDR %}
+    fbResponsive('{{ url('silent_daily_pics_core_show', {slug: image.slug}) }}', divFbW);
+{% endblock %}

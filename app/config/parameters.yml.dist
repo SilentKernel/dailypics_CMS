@@ -1,0 +1,33 @@
+parameters:
+    database_driver:   pdo_mysql
+    database_host:     127.0.0.1
+    database_port:     ~
+    database_name:     symfony
+    database_user:     root
+    database_password: ~
+    # You should uncomment this if you want use pdo_sqlite
+    # database_path: "%kernel.root_dir%/data.db3"
+
+    mailer_transport:  smtp
+    mailer_host:       127.0.0.1
+    mailer_user:       ~
+    mailer_password:   ~
+
+    locale:            en
+    secret:            ThisTokenIsNotSoSecretChangeIt
+
+
+    # General parameter
+    site_name: 'Photo de Chat'
+    site_name_short: PdC
+    site_domain: Photo-de-Chat.fr
+    site_logo: /images/static/logo.jpg
+    bootstrap_template: //maxcdn.bootstrapcdn.com/bootswatch/3.2.0/cyborg/bootstrap.min.css
+    site_launch_year: '2014'
+
+    # Home / list string
+    base_title: "- Photo de Chat"
+    home_title: 'Photo de Chat - Tous les jours une photo de chaton trop mignon'
+    home_descriptiption: "Photo-de-Chat.fr vous proposes des photos de chat ou chaton, tous les jours une nouvelle photo"
+    home_keywords: "photo chat, photo chaton, chat mignon, chaton mignon, photo par jour, chat, chaton, chat mignon, chaton mignon"
+    comment_button_string: "Commenter !"

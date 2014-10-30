@@ -1,0 +1,12 @@
+<div class = "panel panel-default">
+    <div class = "panel-heading">
+        {{ category_string }}
+    </div>
+    <div class="panel-body">
+        <div class = "list-group">
+            {% for category in categories %}
+                <a class="list-group-item" href="#">{{ category.name }} ({{ category.imageCount }})</a>
+            {% endfor %}
+        </div>
+    </div>
+</div>

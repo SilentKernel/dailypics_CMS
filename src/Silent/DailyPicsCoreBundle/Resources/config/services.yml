@@ -1,0 +1,34 @@
+services:
+
+    sonata.admin.daylipicscore.category:
+        class: Silent\DailyPicsCoreBundle\Admin\CategoryAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Images, label: "Catégories" }
+        arguments:
+            - ~
+            - Silent\DailyPicsCoreBundle\Entity\Category
+            - 'SonataAdminBundle:CRUD'
+
+    sonata.admin.daylipicscore.keyword:
+        class: Silent\DailyPicsCoreBundle\Admin\KeywordAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Images, label: "Mots-clefs" }
+        arguments:
+            - ~
+            - Silent\DailyPicsCoreBundle\Entity\Keyword
+            - 'SonataAdminBundle:CRUD'
+
+    sonata.admin.daylipicscore.image:
+        class: Silent\DailyPicsCoreBundle\Admin\ImageAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Images, label: "Images" }
+        arguments:
+            - ~
+            - Silent\DailyPicsCoreBundle\Entity\Image
+            - 'SonataAdminBundle:CRUD'
+            - @service_container
+
+    dailyPicsUtils:
+        class: Silent\DailyPicsCoreBundle\Services\DailyPicsUtils
+        arguments:
+            - @service_container

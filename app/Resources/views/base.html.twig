@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="{{ site_locale }}">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="UTF-8" />
+        <title>{% block title %}{{ base_title }}{% endblock %}</title>
+        <meta name="description" content="{% block description %}{% endblock %}"/>
+        <meta name="keywords" content="{% block keywords %}{% endblock %}"/>
+        <link rel="icon" type="image/x-icon" href="{{ asset('/favicon.ico') }}" />
+        <link rel="stylesheet" href="{{ bootstrap_template }}">
+        {% stylesheets '@SilentDailyPicsCoreBundle/Resources/public/css/*' %}
+            <link rel="stylesheet" href="{{ asset_url }}?v=1.0" type="text/css" />
+        {% endstylesheets %}
+    </head>
+    <body>
+        <div class="container">
+            <header>
+                <div class="page-header">
+                    <a href="{{ path('silent_daily_pics_core_home') }}"><img src="{{ site_logo }}" class="img-responsive" alt="logo de {{ site_name }}"></a>
+                </div>
+            </header>
+
+            <div class="navbar navbar-default">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand hidden-sm" href="{{ path('silent_daily_pics_core_home') }}">{{ site_name }}</a>
+                    <a class="navbar-brand hidden-xs hidden-md hidden-lg" href="{{ path('silent_daily_pics_core_home') }}">{{ site_name_short }}</a>
+                </div>
+                <div class="navbar-collapse collapse navbar-responsive-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown {% block catecory_navbar_class %}{% endblock %}">
+                            <a href="#" class="dropdown-toggle " data-toggle="dropdown">{{ category_string }} <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                {% render controller("SilentDailyPicsCoreBundle:NavBar:category") %}
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="row">
+
+                <section class="col-xs-12 col-sm-12 col-md-9 col-lg-8" id = "poto_ct" >
+                    {% block container %}{% endblock %}
+                </section>
+
+                <nav class="col-xs-12 col-sm-12 col-md-3 col-lg-4">
+                    {% render controller("SilentDailyPicsCoreBundle:Side:category") %}
+
+                </nav>
+            </div>
+
+
+            <footer class="modal-footer">
+                <p><a href="{{ path('silent_daily_pics_core_home') }}">{{ site_name }}</a> - {{ site_launch_year }}</p>
+                <p>Ce site utilise <a href="#">Daily Pics CMS</a> par <a href="http://silentkernel.fr">SilentKernel</a></p>
+            </footer>
+        </div>
+
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+        {% stylesheets '@SilentDailyPicsCoreBundle/Resources/public/js/*' %}
+            <script src="{{ asset_url }}?v=1.0"></script>
+        {% endstylesheets %}
+        {% block javascripts %}
+        {% endblock %}
+
+        <script>
+            jQuery(document).ready(function () { {% block jqueryDR %}{% endblock %} });
+        </script>
+
+
+    </body>
+</html>

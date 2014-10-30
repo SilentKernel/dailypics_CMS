@@ -1,0 +1,7 @@
+{% for image in images %}
+    {% include 'SilentDailyPicsCoreBundle:List:single.html.twig' with {'image': image } only %}
+{% endfor %}
+
+<div class="text-center">
+    {{ knp_pagination_render(images) }}
+</div>

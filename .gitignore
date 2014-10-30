@@ -1,0 +1,12 @@
+/web/bundles/
+/app/bootstrap*
+/app/cache/*
+/app/logs/*
+/vendor/
+/app/config/parameters.yml
+/bin/
+/web/images/*
+/web/app_dev.php
+*._.DS_Store*
+.fuse*
+.idea*

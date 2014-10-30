@@ -1,0 +1,13 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}{{ home_title }}{% endblock %}
+{% block description %}{{ home_descriptiption }}{% endblock %}
+{% block keywords %}{{ home_keywords }}{% endblock %}
+
+{% block container %}
+    {% include 'SilentDailyPicsCoreBundle:List:list.html.twig' with {images : images} %}
+{% endblock %}
+
+{% block javascripts %}
+    {% include 'SilentDailyPicsCoreBundle:Social:socialJavaScript.html.twig' %}
+{% endblock %}
