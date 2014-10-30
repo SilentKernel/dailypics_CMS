@@ -8,4 +8,5 @@ This is a symfony based application with some extra bundle (Sonata Admin, FoS Us
 
 It's not finished yet.
 
-Applications's code is licensed under GPLv2 License, This App uses other code (Bundles, Javascript Library, Symfony Core ...) this code is licensed under their own license.
+Applications's code is licensed under GPLv2.
+This App uses other code (Bundles, Javascript Library, Symfony Core ...) these code are licensed under their own license.
