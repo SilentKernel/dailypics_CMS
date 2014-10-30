@@ -1,4 +1,4 @@
-dailypics_CMS
+DailyPics CMS
 =============
 
 A simple CMS wich allow to create a website to show one picture (or more) per day.
@@ -8,4 +8,4 @@ This is a symfony based application with some extra bundle (Sonata Admin, FoS Us
 
 It's not finished yet.
 
-Code of bundle, extra JS are licesend under their own license, Applications's code is licensed under GPLv2 License
+Applications's code is licensed under GPLv2 License, This App uses other code (Bundles, Javascript Library, Symfony Core ...) this code is licensed under their own license.
