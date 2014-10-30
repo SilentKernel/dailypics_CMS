@@ -10,3 +10,4 @@
 *._.DS_Store*
 .fuse*
 .idea*
+*php~*
