@@ -9,6 +9,7 @@
 /web/app_dev.php
 *php~*
 /src/Silent/DailyPicsCoreBundle/Resources/public/css/pdc.css
+/web/favicon.ico
 
 Thumbs.db
 ehthumbs.db
