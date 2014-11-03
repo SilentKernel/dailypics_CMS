@@ -243,10 +243,10 @@ class Image
     /**
      * Add categories
      *
-     * @param \Silent\DailyPicsCoreBundle\Entity\Categorie $categories
+     * @param \Silent\DailyPicsCoreBundle\Entity\Category $categories
      * @return Image
      */
-    public function addCategory(\Silent\DailyPicsCoreBundle\Entity\Categorie $categories)
+    public function addCategory(\Silent\DailyPicsCoreBundle\Entity\Category $categories)
     {
         $this->categories[] = $categories;
 
@@ -256,9 +256,9 @@ class Image
     /**
      * Remove categories
      *
-     * @param \Silent\DailyPicsCoreBundle\Entity\Categorie $categories
+     * @param \Silent\DailyPicsCoreBundle\Entity\Category $categories
      */
-    public function removeCategory(\Silent\DailyPicsCoreBundle\Entity\Categorie $categories)
+    public function removeCategory(\Silent\DailyPicsCoreBundle\Entity\Category $categories)
     {
         $this->categories->removeElement($categories);
     }

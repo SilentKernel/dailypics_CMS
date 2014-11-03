@@ -31,14 +31,20 @@ twig:
         site_name_short: "%site_name_short%"
         site_domain: "%site_domain%"
         site_logo: "%site_logo%"
+        site_version: "%site_version%"
+        site_facebook_page: "%site_facebook_page%"
         bootstrap_template: "%bootstrap_template%"
-        category_string: "%category_string%"
+        categories_string: "%categories_string%"
+        category_string : "%category_string%"
+        random_string: "%random_string%"
         base_title: "%base_title%"
         home_title: "%home_title%"
         home_descriptiption: "%home_descriptiption%"
         home_keywords: "%home_keywords%"
         site_launch_year: "%site_launch_year%"
         comment_button_string: "%comment_button_string%"
+        authenticate_string: "%authenticate_string%"
+
 
 # Assetic Configuration
 assetic:
@@ -81,6 +87,7 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
+
 
 services:
     cache_APC:

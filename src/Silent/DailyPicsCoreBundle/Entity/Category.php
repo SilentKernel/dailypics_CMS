@@ -33,6 +33,13 @@ class Category
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="seo_description", type="string", length=160, nullable=false, unique=true)
+     */
+    private $seoDescription;
+
+    /**
+     * @var string
      * @Gedmo\Slug(fields={"name"})
      * @ORM\Column(name="slug", type="string", length=255, unique=true)
      */
@@ -144,5 +151,28 @@ class Category
     public function getImages()
     {
         return $this->images;
+    }
+
+    /**
+     * Set seoDescription
+     *
+     * @param string $seoDescription
+     * @return Category
+     */
+    public function setSeoDescription($seoDescription)
+    {
+        $this->seoDescription = $seoDescription;
+
+        return $this;
+    }
+
+    /**
+     * Get seoDescription
+     *
+     * @return string 
+     */
+    public function getSeoDescription()
+    {
+        return $this->seoDescription;
     }
 }

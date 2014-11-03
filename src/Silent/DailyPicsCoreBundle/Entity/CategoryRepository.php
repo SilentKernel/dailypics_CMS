@@ -27,4 +27,23 @@ class CategoryRepository extends EntityRepository
         $query->useResultCache(true, self::cacheTime);
         return $query->getArrayResult();
     }
+
+
+    public function getCategoryBySlug($slug, $now)
+    {
+        $query = $this->_em->CreateQuery("SELECT c, i
+                                 FROM SilentDailyPicsCoreBundle:Category c
+                                 JOIN c.images i
+                                 WHERE c.slug = :slug
+                                 AND i.publishDate <= :now
+                                 ORDER BY i.publishDate DESC");
+
+        $query->setParameter(":now", $now);
+        $query->setParameter(":slug", $slug);
+
+        $query->useResultCache(true, self::cacheTime);
+
+        return $query->getSingleResult();
+    }
+
 }

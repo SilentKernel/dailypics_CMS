@@ -48,4 +48,29 @@ class ImageRepository extends EntityRepository
 
         return $query->getSingleResult();
     }
+
+    public function findAllWithDelimiter($now)
+    {
+        return $this->getBaseListForKnpPaginator($now)->getResult();
+    }
+
+    /*
+    public function getLastId($cache, $now)
+    {
+        $query = $this->_em->createQuery('SELECT i.id AS idCount FROM SilentDailyPicsCoreBundle:Image i WHERE i.publishDate <= :now ORDER BY i.id DESC');
+        $query->setParameter(':now', $now);
+        $query->setMaxResults(1);
+
+        if ($cache)
+            $query->useResultCache(true, self::cacheTime);
+
+        $result = $query->getArrayResult();
+        if (isset($result[0]["idCoubnt"]))
+            return $result[0]["idCoubnt"];
+        else
+            return 0;
+
+    }
+    */
+
 }

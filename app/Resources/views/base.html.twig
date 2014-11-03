@@ -9,14 +9,17 @@
         <link rel="icon" type="image/x-icon" href="{{ asset('/favicon.ico') }}" />
         <link rel="stylesheet" href="{{ bootstrap_template }}">
         {% stylesheets '@SilentDailyPicsCoreBundle/Resources/public/css/*' %}
-            <link rel="stylesheet" href="{{ asset_url }}?v=1.0" type="text/css" />
+            <link rel="stylesheet" href="{{ asset_url }}?v={{ site_version }}" type="text/css" />
         {% endstylesheets %}
+        {% block head %}{% endblock %}
     </head>
     <body>
         <div class="container">
             <header>
                 <div class="page-header">
-                    <a href="{{ path('silent_daily_pics_core_home') }}"><img src="{{ site_logo }}" class="img-responsive" alt="logo de {{ site_name }}"></a>
+                    <a href="{{ path('silent_daily_pics_core_home') }}">
+                        <img src="{{ site_logo }}" class="img-responsive" alt="logo de {{ site_name }}">
+                    </a>
                 </div>
             </header>
 
@@ -33,22 +36,27 @@
                 <div class="navbar-collapse collapse navbar-responsive-collapse">
                     <ul class="nav navbar-nav">
                         <li class="dropdown {% block catecory_navbar_class %}{% endblock %}">
-                            <a href="#" class="dropdown-toggle " data-toggle="dropdown">{{ category_string }} <b class="caret"></b></a>
+                            <a href="#" class="dropdown-toggle " data-toggle="dropdown">{{ categories_string }} <b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 {% render controller("SilentDailyPicsCoreBundle:NavBar:category") %}
                             </ul>
                         </li>
+                        {% include "SilentDailyPicsCoreBundle:NavBar:facebook.html.twig" %}
                     </ul>
                 </div>
             </div>
 
             <div class="row">
 
-                <section class="col-xs-12 col-sm-12 col-md-9 col-lg-8" id = "poto_ct" >
+                <section class="col-xs-12 col-sm-12 col-md-8 col-lg-8" id = "poto_ct" >
                     {% block container %}{% endblock %}
                 </section>
 
-                <nav class="col-xs-12 col-sm-12 col-md-3 col-lg-4">
+                <nav class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+
+
+                    {% include "SilentDailyPicsCoreBundle:Side:facebook.html.twig" %}
+                    {% render controller("SilentDailyPicsCoreBundle:Side:random") %}
                     {% render controller("SilentDailyPicsCoreBundle:Side:category") %}
 
                 </nav>
@@ -57,7 +65,7 @@
 
             <footer class="modal-footer">
                 <p><a href="{{ path('silent_daily_pics_core_home') }}">{{ site_name }}</a> - {{ site_launch_year }}</p>
-                <p>Ce site utilise <a href="https://github.com/SilentKernel/dailypics_CMS">Daily Pics CMS</a> par <a href="http://silentkernel.fr">SilentKernel</a></p>
+                <p>Ce site utilise <a href="https://github.com/SilentKernel/dailypics_CMS">Daily Pics CMS ({{ site_version }})</a> par <a href="http://silentkernel.fr">SilentKernel</a></p>
             </footer>
         </div>
 
@@ -65,7 +73,7 @@
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
         {% stylesheets '@SilentDailyPicsCoreBundle/Resources/public/js/*' %}
-            <script src="{{ asset_url }}?v=1.0"></script>
+            <script src="{{ asset_url }}?v={{ site_version }}"></script>
         {% endstylesheets %}
         {% block javascripts %}
         {% endblock %}

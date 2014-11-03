@@ -2,6 +2,10 @@ silent_daily_pics_core_home:
     path:     /
     defaults: { _controller: SilentDailyPicsCoreBundle:Pics:home }
 
+silent_daily_pics_core_category:
+    path:     /categorie/{slug}/
+    defaults: { _controller: SilentDailyPicsCoreBundle:Category:showCategory }
+
 silent_daily_pics_core_show:
     path:     /photo/{slug}/
     defaults: { _controller: SilentDailyPicsCoreBundle:Pics:showPics }

@@ -3,6 +3,7 @@
 {% block title %}{{ image.title }} {{ parent() }}{% endblock %}
 {% block description %}{{ image.seoDescription }}{% endblock %}
 {% block keywords %}{% for keyword in image.seoKeywords %}{% if loop.index != 1 %}, {% endif %}{{ keyword }}{% endfor %}{% endblock %}
+{% block head %}<meta property="og:image" content="{{ image.relativeWebPath | imagine_filter('photo_seule') }}" />{% endblock %}
 
 {% block container %}
     <div class = "panel panel-default">

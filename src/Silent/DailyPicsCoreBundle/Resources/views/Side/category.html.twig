@@ -1,11 +1,11 @@
 <div class = "panel panel-default">
     <div class = "panel-heading">
-        {{ category_string }}
+        {{ categories_string }}
     </div>
     <div class="panel-body">
         <div class = "list-group">
             {% for category in categories %}
-                <a class="list-group-item" href="#">{{ category.name }} ({{ category.imageCount }})</a>
+                <a class="list-group-item" href="{{ path('silent_daily_pics_core_category', {slug: category.slug}) }}">{{ category.name }} ({{ category.imageCount }})</a>
             {% endfor %}
         </div>
     </div>

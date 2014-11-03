@@ -12,11 +12,14 @@ class CategoryAdmin extends Admin
 {
 
     const nameLabel = "Nom de la catégorie";
+    const seoDescriptionLabel = "Description de la catégorie (pour les moteurs de recherche)";
+
     protected function configureFormFields(FormMapper $formMapper)
     {
 
         $formMapper
             ->add('name', null, array('required' => true, 'label' => self::nameLabel))
+            ->add('seoDescription', null, array('required' => true, 'label' => self::seoDescriptionLabel))
         ;
 
     }
@@ -40,6 +43,7 @@ class CategoryAdmin extends Admin
     {
         $showMapper
             ->add('name', null, array('required' => true, 'label' => self::nameLabel))
+            ->add('seoDescription', null, array('required' => true, 'label' => self::seoDescriptionLabel))
         ;
     }
 

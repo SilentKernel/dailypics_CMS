@@ -8,3 +8,16 @@
     width: 120px;
     border-width:0px;
 }
+
+.facebook-big-like
+{
+    border-width:0px;
+    overflow:hidden;
+    height:200px;
+    width:100%
+}
+
+.site-banner
+{
+    background: url("/images/static/logo.jpg") no-repeat left top;
+}

@@ -1,0 +1,14 @@
+{% if randImg != null %}
+<div class = "panel panel-default">
+    <div class = "panel-heading">
+        {{ random_string }}
+    </div>
+    <div class="panel-body">
+            {% for image in randImg %}
+                <a href="{{ path('silent_daily_pics_core_show', {slug : image.slug}) }}">
+                    <img class="img-responsive img-thumbnail" src="{{ image.relativeWebPath | imagine_filter('thumb') }}" alt="{{ image.title }}" title="{{ image.title }}" />
+                </a>
+            {% endfor %}
+    </div>
+</div>
+{% endif %}

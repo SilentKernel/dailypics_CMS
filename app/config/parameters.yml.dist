@@ -22,9 +22,13 @@ parameters:
     site_name_short: "MS"
     site_domain: "mysite.com"
     site_logo: "/images/static/logo.jpg"
-    bootstrap_template: "//cdn.jsdelivr.net/bootstrap/3.3.0/css/bootstrap.min.css"
+    bootstrap_template: "//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
     site_launch_year: '2014'
-    category_string: "Catégories"
+    site_facebook_page: ""
+    category_string: "Catégorie"
+    categories_string: "Catégories"
+    authenticate_string: "Authentification"
+    random_string: "Au hasard"
 
     # Home / list string
     base_title: "- my_site"
