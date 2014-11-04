@@ -13,26 +13,32 @@ parameters:
     mailer_user:       ~
     mailer_password:   ~
 
-    locale:            en
+    locale:            fr
     secret:            ThisTokenIsNotSoSecretChangeIt
 
-
-    # General parameter
-    site_name: 'MySite'
-    site_name_short: "MS"
-    site_domain: "mysite.com"
+    # General settings
+    site_name: "Photo de Chat"
+    site_name_short: "PdC"
+    site_domain: "Photo-de-Chat.fr"
     site_logo: "/images/static/logo.jpg"
-    bootstrap_template: "//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
-    site_launch_year: '2014'
-    site_facebook_page: ""
+    site_version: "0.0.1"
+    site_facebook_page: "https://www.facebook.com/photodechat"
+    bootstrap_template: "//maxcdn.bootstrapcdn.com/bootswatch/3.2.0/superhero/bootstrap.min.css"
+    site_launch_year: "2014"
+    base_title: "- Photo de Chat"
+    home_title: "Photo de Chat - Tous les jours une photo de chaton trop mignon"
+    home_descriptiption: "Photo-de-Chat.fr vous propose des photos de chat ou chaton, tous les jours une nouvelle photo"
+    home_keywords: "photo chat, photo chaton, chat mignon, chaton mignon, photo par jour, chat, chaton, chat mignon, chaton mignon"
+
+    # Strings
     category_string: "Catégorie"
     categories_string: "Catégories"
     authenticate_string: "Authentification"
-    random_string: "Au hasard"
-
-    # Home / list string
-    base_title: "- my_site"
-    home_title: 'MySite - Home'
-    home_descriptiption: "This website is great"
-    home_keywords: "picture, one picture per day"
+    random_string: "Image au hasard"
     comment_button_string: "Commenter !"
+    administration_link_string: "Administration"
+    back_to_site_string: "Retour sur le site"
+    logout_string: "Déconnexion"
+    previous_pics_string: "Image précédente"
+    next_pics_string: "Image suivante"
+

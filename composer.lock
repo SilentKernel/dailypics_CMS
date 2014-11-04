@@ -1237,17 +1237,17 @@
         },
         {
             "name": "liip/imagine-bundle",
-            "version": "1.0.8",
+            "version": "1.1.0",
             "target-dir": "Liip/ImagineBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/liip/LiipImagineBundle.git",
-                "reference": "fe51d50896434d4c1393a5de1504cc174b9049bd"
+                "reference": "4530ca6fe10885e70cbff9ce992d82752743ea6a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/liip/LiipImagineBundle/zipball/fe51d50896434d4c1393a5de1504cc174b9049bd",
-                "reference": "fe51d50896434d4c1393a5de1504cc174b9049bd",
+                "url": "https://api.github.com/repos/liip/LiipImagineBundle/zipball/4530ca6fe10885e70cbff9ce992d82752743ea6a",
+                "reference": "4530ca6fe10885e70cbff9ce992d82752743ea6a",
                 "shasum": ""
             },
             "require": {
@@ -1307,7 +1307,7 @@
                 "image",
                 "imagine"
             ],
-            "time": "2014-10-22 06:27:33"
+            "time": "2014-10-29 18:48:33"
         },
         {
             "name": "monolog/monolog",

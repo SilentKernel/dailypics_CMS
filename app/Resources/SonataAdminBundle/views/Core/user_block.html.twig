@@ -1,0 +1,11 @@
+{% block user_block %}
+<li><a href="{{ path('silent_daily_pics_core_home') }}">
+        {{ back_to_site_string }}
+    </a>
+</li>
+<li>
+    <a href="{{ path('fos_user_security_logout') }}">
+        {{ logout_string }}
+    </a>
+</li>
+{% endblock %}

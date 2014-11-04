@@ -22,9 +22,33 @@
             <p>{{ image.comment }}</p>
             <br />
 
-            <div class = "pull-left">
-                {% include 'SilentDailyPicsCoreBundle:Social:social.html.twig' with {image : image} %}
+            <div class = "row">
+                <div class = "col-lg-12">
+                    <div class = "pull-left">
+                        {% include 'SilentDailyPicsCoreBundle:Social:social.html.twig' with {image : image} %}
+                    </div>
+                </div>
             </div>
+
+            <br />
+
+            {% if previousImage != null %}
+            <div class = "pull-left">
+                <a href = "{{ path('silent_daily_pics_core_show', { slug: previousImage.slug} ) }}">
+                    <img class="img-responsive img-thumbnail" src="{{ previousImage.relativeWebPath | imagine_filter('thumb') }}" alt="{{ previousImage.title }}" title="{{ previousImage.title }}" />
+                </a>
+                <a href = "{{ path('silent_daily_pics_core_show', { slug: previousImage.slug} ) }}" class = "btn  btn-default"><span class ="glyphicon glyphicon-chevron-left"></span> {{ previous_pics_string }}</a>
+            </div>
+            {% endif %}
+            {% if nextImage != null %}
+            <div class = "pull-right">
+                <a href = "{{ path('silent_daily_pics_core_show', { slug: nextImage.slug} ) }}" class = "btn  btn-default">{{ next_pics_string }} <span class ="glyphicon glyphicon-chevron-right"></span> </a>
+                <a href = "{{ path('silent_daily_pics_core_show', { slug: nextImage.slug} ) }}">
+                    <img class="img-responsive img-thumbnail" src="{{ nextImage.relativeWebPath | imagine_filter('thumb') }}" alt="{{ nextImage.title }}" title="{{ nextImage.title }}" />
+                </a>
+            </div>
+            {% endif %}
+
         </div>
     </div>
 

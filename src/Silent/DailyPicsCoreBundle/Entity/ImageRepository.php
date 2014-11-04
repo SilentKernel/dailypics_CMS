@@ -49,6 +49,52 @@ class ImageRepository extends EntityRepository
         return $query->getSingleResult();
     }
 
+    public function getPreviousImage($current, $now)
+    {
+        $query = $this->_em->createQuery("SELECT i
+                                         FROM SilentDailyPicsCoreBundle:Image i
+                                         WHERE i.publishDate > :currentImageDate
+                                         AND i.publishDate <= :now
+                                         ORDER BY i.publishDate ASC");
+
+        $query->setParameter(":currentImageDate", $current->getPublishDate());
+        $query->setParameter(":now",$now);
+
+        $query->setMaxResults(1);
+        $query->useResultCache(true, self::cacheTime);
+
+        $result = $query->getResult();
+        //We don't use getSingleResult cause the request can return nothing, with getSingleResult app can crash
+        if (isset($result[0]))
+            return $result[0];
+        else
+            return null;
+
+    }
+
+    public function getNextImage($current, $now)
+    {
+        $query = $this->_em->createQuery("SELECT i
+                                         FROM SilentDailyPicsCoreBundle:Image i
+                                         WHERE i.publishDate < :currentImageDate
+                                         AND i.publishDate <= :now
+                                         ORDER BY i.publishDate DESC");
+
+        $query->setParameter(":currentImageDate", $current->getPublishDate());
+        $query->setParameter(":now",$now);
+
+        $query->setMaxResults(1);
+        $query->useResultCache(true, self::cacheTime);
+
+        $result = $query->getResult();
+        //We don't use getSingleResult cause the request can return nothing, with getSingleResult app can crash
+        if (isset($result[0]))
+            return $result[0];
+        else
+            return null;
+
+    }
+
     public function findAllWithDelimiter($now)
     {
         return $this->getBaseListForKnpPaginator($now)->getResult();

@@ -44,7 +44,11 @@ twig:
         site_launch_year: "%site_launch_year%"
         comment_button_string: "%comment_button_string%"
         authenticate_string: "%authenticate_string%"
-
+        administration_link_string: "%administration_link_string%"
+        logout_string: "%logout_string%"
+        back_to_site_string: "%back_to_site_string%"
+        previous_pics_string: "%previous_pics_string%"
+        next_pics_string: "%next_pics_string%"
 
 # Assetic Configuration
 assetic:
@@ -108,6 +112,9 @@ fos_user:
     db_driver: orm
     firewall_name: main
     user_class: Silent\DailyPicsUserBundle\Entity\User
+
+sonata_admin:
+    title: DailyPics Administration
 
 sonata_block:
     default_contexts: [cms]

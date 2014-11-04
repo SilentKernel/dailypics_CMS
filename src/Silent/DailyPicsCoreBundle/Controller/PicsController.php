@@ -25,12 +25,19 @@ class PicsController extends Controller
 
     public function showPicsAction($slug)
     {
-        $image = $this->getDoctrine()
+        $imageR = $this->getDoctrine()
             ->getManager()
-            ->getRepository('SilentDailyPicsCoreBundle:Image')
-            ->getOneImage($slug, $this->get('dailyPicsUtils')->getCurrentCachedTime());
+            ->getRepository('SilentDailyPicsCoreBundle:Image');
+        $now = $this->get('dailyPicsUtils')->getCurrentCachedTime();
+
+        $image = $imageR->getOneImage($slug, $now);
+        $previousImage = $imageR->getPreviousImage($image ,$now);
+        $netImage = $imageR->getNextImage($image ,$now);
 
         return $this->render('SilentDailyPicsCoreBundle:Pages:singlePics.html.twig',
-            array('image' => $image));
+            array('image' => $image,
+                "previousImage" => $previousImage,
+            "nextImage" => $netImage)
+            );
     }
 }
