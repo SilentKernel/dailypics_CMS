@@ -19,7 +19,7 @@ class SideController extends Controller
 
     public function randomAction()
     {
-        $randImg = $this->get('dailyPicsUtils')->getRandomPics(8);
+        $randImg = $this->get('dailyPicsUtils')->getRandomPics(12);
         return $this->render('SilentDailyPicsCoreBundle:Side:random.html.twig',
             array('randImg' => $randImg));
     }
