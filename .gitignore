@@ -10,6 +10,8 @@
 *php~*
 /src/Silent/DailyPicsCoreBundle/Resources/public/css/pdc.css
 /web/favicon.ico
+/web/css/*
+/web/js/*
 
 Thumbs.db
 ehthumbs.db
