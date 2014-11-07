@@ -5,8 +5,8 @@
     </div>
     <div class="panel-body">
             {% for image in randImg %}
-                <a href="{{ path('silent_daily_pics_core_show', {slug : image.slug}) }}">
-                    <img class="img-responsive img-thumbnail" src="{{ image.relativeWebPath | imagine_filter('thumb') | replace({'http:': "" }) }}" alt="{{ image.title }}" title="{{ image.title }}" />
+                <a href="{{ path('silent_daily_pics_core_show', {slug : image.slug}) }}" title="{{ image.title }}">
+                    <img class="img-responsive img-thumbnail" src="{{ image.relativeWebPath | imagine_filter('thumb') | replace({('http://' ~ app.request.host): "" }) }}" alt="{{ image.title }}" />
                 </a>
             {% endfor %}
     </div>
