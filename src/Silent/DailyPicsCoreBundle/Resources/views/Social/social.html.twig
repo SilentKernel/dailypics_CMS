@@ -1,3 +1,3 @@
-<iframe src="//www.facebook.com/plugins/like.php?href={{ url('silent_daily_pics_core_show', {slug: image.slug}  )|url_encode}}&amp;width&amp;layout=button_count&amp;action=like&amp;show_faces=false&amp;share=false&amp;height=21" class="facebook-like"></iframe>
-<a href="https://twitter.com/share" class="twitter-share-button" data-text="{{ image.title }} :" data-url="{{ url('silent_daily_pics_core_show', {slug: image.slug}  ) }}">Tweet</a>
-<div class="g-plusone" data-size="medium" data-href="{{url('silent_daily_pics_core_show', {slug: image.slug}  )}}"></div>
+<iframe src="//www.facebook.com/plugins/like.php?href={{ site_protocol ~ app.request.host ~ path('silent_daily_pics_core_show', {slug: image.slug})|url_encode}}&amp;width&amp;layout=button_count&amp;action=like&amp;show_faces=false&amp;share=false&amp;height=21" class="facebook-like"></iframe>
+<a href="https://twitter.com/share" class="twitter-share-button" data-text="{{ image.title }} :" data-url="{{ site_protocol ~ app.request.host ~ path('silent_daily_pics_core_show', {slug: image.slug}) }}">Tweet</a>
+<div class="g-plusone" data-size="medium" data-href="{{ site_protocol ~ app.request.host ~ path('silent_daily_pics_core_show', {slug: image.slug}) }}"></div>

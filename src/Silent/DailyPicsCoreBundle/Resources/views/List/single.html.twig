@@ -6,7 +6,7 @@
         <div class = "row">
             <div class = "col-xs-12 col-sm-8 col-md-8 col-lg-9">
                 <a href="{{ path('silent_daily_pics_core_show', {slug : image.slug}) }}">
-                    <img class="img-responsive img-rounded" src="{{ image.relativeWebPath | imagine_filter('photo_liste') }}" alt="{{ image.title }}" />
+                    <img class="img-responsive img-rounded" src="{{ image.relativeWebPath | imagine_filter('photo_liste') | replace({'http:': "" }) }}" alt="{{ image.title }}" />
                 </a>
             </div>
             <div class="col-xs-12 col-sm-4 col-md-4 col-lg-3">

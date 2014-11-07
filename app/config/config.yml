@@ -26,6 +26,7 @@ twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
     globals:
+        site_protocol: "%site_protocol%"
         site_locale: "%locale%"
         site_name: "%site_name%"
         site_name_short: "%site_name_short%"
@@ -49,6 +50,7 @@ twig:
         back_to_site_string: "%back_to_site_string%"
         previous_pics_string: "%previous_pics_string%"
         next_pics_string: "%next_pics_string%"
+
 
 # Assetic Configuration
 assetic:

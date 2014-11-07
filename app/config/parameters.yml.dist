@@ -17,6 +17,7 @@ parameters:
     secret:            ThisTokenIsNotSoSecretChangeIt
 
     # General settings
+    site_url: "http://"
     site_name: "Mon site d'image"
     site_name_short: "MsI"
     site_domain: "mon-site-image.fr"
