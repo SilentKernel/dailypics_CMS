@@ -42,9 +42,9 @@
             {% endif %}
             {% if nextImage != null %}
             <div class = "pull-right">
-                <a href = "{{ path('silent_daily_pics_core_show', { slug: nextImage.slug} ) }}" class = "btn  btn-default" title="{{ nextImage.title }}">{{ next_pics_string }} <span class ="glyphicon glyphicon-chevron-right"></span></a>
+                <a href = "{{ path('silent_daily_pics_core_show', { slug: nextImage.slug} ) }}" class = "btn btn-default" title="{{ nextImage.title }}">{{ next_pics_string }} <span class ="glyphicon glyphicon-chevron-right"></span></a>
                 <a href = "{{ path('silent_daily_pics_core_show', { slug: nextImage.slug} ) }}" title="{{ nextImage.title }}">
-                    <img class="img-responsive img-thumbnail" src="{{ nextImage.relativeWebPath | imagine_filter('thumb') | replace({('http://' ~ app.request.host): "" }) }} " alt="{{ nextImage.title }}" />
+                    <img class="img-responsive img-thumbnail" src="{{ nextImage.relativeWebPath | imagine_filter('thumb') | replace({('http://' ~ app.request.host): "" }) }}" alt="{{ nextImage.title }}" />
                 </a>
             </div>
             {% endif %}

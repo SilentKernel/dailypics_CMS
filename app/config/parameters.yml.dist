@@ -18,6 +18,7 @@ parameters:
 
     # General settings
     site_protocol: "http://"
+    ga_id: "UA-xxxxxxxx"
     site_name: "Mon site d'image"
     site_name_short: "MsI"
     site_domain: "mon-site-image.fr"
