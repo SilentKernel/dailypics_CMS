@@ -7,7 +7,7 @@ const LSCString = "cns";
 
 function acceptCookie()
 {
-    // will put a string in localStorage to prevent showing the notification again
+    // Will put a string in localStorage to prevent showing the notification again
     localStorage.setItem(LSCString, 1);
     $("#cookie_notification").html("");
 }
@@ -23,7 +23,7 @@ function declineCookie()
 // we will also allow webmaster to add a "more info" link
 function showCookieNotification()
 {
-    // Show only if client did not accepted Cookies (with local storage.
+    // Show only if client did not accepted Cookies (with local storage)
     if (localStorage.getItem(LSCString) != 1)
     {
         $( "#main_container" ).prepend
@@ -32,8 +32,8 @@ function showCookieNotification()
                 '<div class = "alert alert-dismissible alert-info text-center">' +
                     "Ce site utilise les cookies pour fonctionner, acceptez vous l'utilisation des cookies ?" +
                     "<br />" +
-                    "<a class = 'btn btn-success' href='javascript:void(0);' onclick='acceptCookie()'>J'accepte</a> " +
-                    "<a class = 'btn btn-danger' href='javascript:void(0);' onclick='declineCookie()'>Je refuse</a>" +
+                    "<a class = 'btn btn-success' onclick='acceptCookie()'>J'accepte</a> " +
+                    "<a class = 'btn btn-danger' onclick='declineCookie()'>Je refuse</a>" +
             '</div>' +
             '</div>'
         );
