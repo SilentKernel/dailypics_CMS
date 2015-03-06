@@ -8,10 +8,32 @@ const LSCString = "cns";
 // don't remake Ajax call when "more info" was showed once
 var cookieMoreInfoShown = false;
 
+// GAfunction
+var _gaq = _gaq || [];
+
+function prepareGA(gaID) {
+    if (gaID != ""){
+        _gaq.push(['_setAccount', gaID]);
+        _gaq.push(['_trackPageview']);
+    }
+}
+
+function loadGA()
+{
+    if (_gaq.length == 2) {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    }
+}
+
 function acceptCookies()
 {
     // Will put a string in localStorage to prevent showing the notification again
     localStorage.setItem(LSCString, 1);
+    loadGA();
+    loadTwitter();
+    loadGPlus();
     $("#cookie_notification").html("");
 }
 
@@ -27,8 +49,11 @@ function cookiesMoreInfo()
     else $('#cookiesinfo').modal();
 }
 
-function showCookiesNotification(customMessage, customAcceptBtn, declineUrl, customDeclineBtn, customInfoButn)
+function showCookiesNotification(customMessage, customAcceptBtn, declineUrl, customDeclineBtn, customInfoButn, gaID)
 {
+    // Preparing GA (not loaded at this time
+    prepareGA(gaID);
+
     // Show only if client did not accepted Cookies (with local storage)
     if (localStorage.getItem(LSCString) != 1)
     {
@@ -42,5 +67,11 @@ function showCookiesNotification(customMessage, customAcceptBtn, declineUrl, cus
                 '<br /><br /></div>' +
             '</div>'
         );
+    }
+    else
+    {
+        loadGA();
+        loadTwitter();
+        loadGPlus();
     }
 }

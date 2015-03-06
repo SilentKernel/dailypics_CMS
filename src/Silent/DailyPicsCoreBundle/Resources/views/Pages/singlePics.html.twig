@@ -59,19 +59,13 @@
 {% endblock %}
 
 {% block javascripts %}
-    {% include 'SilentDailyPicsCoreBundle:Social:socialJavaScript.html.twig' %}
-    {% include 'SilentDailyPicsCoreBundle:Social:facebookComment.html.twig' %}
     <script>
+        loadFacebookCommentBoxJs();
         var divFbW = $('#fb_comments_box').width();
-        $(window).bind("resize", function(){
-            if (divFbW != $('#fb_comments_box').width()) {
-                fbResponsive('{{ url('silent_daily_pics_core_show', {slug: image.slug}) }}', divFbW);
-                divFbW = $('#fb_comments_box').width();
-            }
-        });
+        facebookBindResponsive('{{ image.slug }}');
     </script>
 {% endblock %}
 
 {% block jqueryDR %}
-    fbResponsive('{{ site_protocol ~ app.request.host ~ path('silent_daily_pics_core_show', {slug: image.slug}) }}', divFbW);
+    fbResponsive('{{ image.slug }}', divFbW);
 {% endblock %}

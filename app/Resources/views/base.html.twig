@@ -84,24 +84,14 @@
         <script>
             jQuery(document).ready(function () {
                 {% if cookie_warning_enabled %}
-                    showCookiesNotification("{{ cookie_warning_message }}", "{{ cookie_warning_accept }}", "{{ cookie_warning_decline_url }}", "{{ cookie_warning_decline }}", "{{ cookie_warning_more_informations }}");
+                    showCookiesNotification("{{ cookie_warning_message }}", "{{ cookie_warning_accept }}", "{{ cookie_warning_decline_url }}", "{{ cookie_warning_decline }}", "{{ cookie_warning_more_informations }}", "{{ ga_id }}");
+                {% else %}
+                    prepareGA("{{ ga_id }}");
+                    loadGA();
+                    loadTwitter();
+                    loadGPlus();
                 {% endif %}
                 {% block jqueryDR %}{% endblock %} });
         </script>
-
-    {% if ga_id != "" %}
-        <script type="text/javascript">
-            var _gaq = _gaq || [];
-            _gaq.push(['_setAccount', '{{ ga_id }}']);
-            _gaq.push(['_trackPageview']);
-            (function() {
-                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-                ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
-                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-            })();
-        </script>
-    {% endif %}
-
-
     </body>
 </html>
