@@ -53,13 +53,11 @@
                 </section>
 
                 <nav class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-
-
                     {% include "SilentDailyPicsCoreBundle:Side:facebook.html.twig" %}
                     {% render controller("SilentDailyPicsCoreBundle:Side:random") %}
                     {% render controller("SilentDailyPicsCoreBundle:Side:category") %}
-
                 </nav>
+
             </div>
 
 
@@ -77,12 +75,18 @@
         {% javascripts '@SilentDailyPicsCoreBundle/Resources/public/js/*' %}
             <script src="{{ asset_url }}?v={{ site_version }}"></script>
         {% endjavascripts %}
+        <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}?v={{ site_version }}"></script>
+        <script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}&v={{ site_version }}"></script>
 
         {% block javascripts %}
         {% endblock %}
 
         <script>
-            jQuery(document).ready(function () { {% block jqueryDR %}{% endblock %} });
+            jQuery(document).ready(function () {
+                {% if cookie_warning_enabled %}
+                    showCookiesNotification("{{ cookie_warning_message }}", "{{ cookie_warning_accept }}", "{{ cookie_warning_decline_url }}", "{{ cookie_warning_decline }}", "{{ cookie_warning_more_informations }}");
+                {% endif %}
+                {% block jqueryDR %}{% endblock %} });
         </script>
 
     {% if ga_id != "" %}

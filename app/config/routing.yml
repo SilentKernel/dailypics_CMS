@@ -5,6 +5,9 @@ silent_daily_pics_core:
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/security.xml"
 
+fos_js_routing:
+    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
+
 admin:
     resource: '@SonataAdminBundle/Resources/config/routing/sonata_admin.xml'
     prefix: /admin

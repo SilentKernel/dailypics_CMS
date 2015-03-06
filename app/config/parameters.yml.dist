@@ -23,7 +23,7 @@ parameters:
     site_name_short: "MsI"
     site_domain: "mon-site-image.fr"
     site_logo: "/images/static/logo.jpg"
-    site_version: "0.0.1"
+    site_version: "0.0.3"
     site_facebook_page: "https://www.facebook.com/..."
     bootstrap_template: "//maxcdn.bootstrapcdn.com/bootswatch/3.2.0/superhero/bootstrap.min.css"
     site_launch_year: "2014"
@@ -43,4 +43,12 @@ parameters:
     logout_string: "Déconnexion"
     previous_pics_string: "Image précédente"
     next_pics_string: "Image suivante"
+
+    # Cookies warning
+    cookie_warning_enabled: true
+    cookie_warning_message: "À des fins statistiques ce site utilise les cookies, acceptez-vous l'utilisation des cookies ?"
+    cookie_warning_accept: "Oui"
+    cookie_warning_decline: "Non"
+    cookie_warning_decline_url: "https://google.com"
+    cookie_warning_more_informations: "En savoir plus"
 
