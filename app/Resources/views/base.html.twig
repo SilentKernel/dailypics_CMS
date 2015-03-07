@@ -84,11 +84,11 @@
         <script>
             jQuery(document).ready(function () {
                 {% if cookie_warning_enabled %}
-                    showCookiesNotification("{{ cookie_warning_message }}", "{{ cookie_warning_accept }}", "{{ cookie_warning_decline_url }}", "{{ cookie_warning_decline }}", "{{ cookie_warning_more_informations }}", "{{ ga_id }}");
+                    showCookiesNotification("{{ cookie_warning_message }}", "{{ cookie_warning_accept }}", "{{ cookie_warning_decline_url }}", "{{ cookie_warning_decline }}", "{{ cookie_warning_more_informations }}", "{{ ga_id }}", "{{ site_locale }}");
                 {% else %}
                     prepareGA("{{ ga_id }}");
                     loadGA();
-                    loadTwitter();
+                    loadTwitter("{{ site_locale }}");
                     loadGPlus();
                 {% endif %}
                 {% block jqueryDR %}{% endblock %} });

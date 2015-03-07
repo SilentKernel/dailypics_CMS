@@ -27,12 +27,12 @@ function loadGA()
     }
 }
 
-function acceptCookies()
+function acceptCookies(lang)
 {
     // Will put a string in localStorage to prevent showing the notification again
     localStorage.setItem(LSCString, 1);
     loadGA();
-    loadTwitter();
+    loadTwitter(lang);
     loadGPlus();
     $("#cookie_notification").html("");
 }
@@ -49,7 +49,7 @@ function cookiesMoreInfo()
     else $('#cookiesinfo').modal();
 }
 
-function showCookiesNotification(customMessage, customAcceptBtn, declineUrl, customDeclineBtn, customInfoButn, gaID)
+function showCookiesNotification(customMessage, customAcceptBtn, declineUrl, customDeclineBtn, customInfoButn, gaID, lang)
 {
     // Preparing GA (not loaded at this time
     prepareGA(gaID);
@@ -61,7 +61,7 @@ function showCookiesNotification(customMessage, customAcceptBtn, declineUrl, cus
             '<div id = "cookie_notification" class = "col-xs-12 col-sm-12 col-md-12 col-lg-12"> ' +
                 '<div class = "panel panel-default text-center"> <br />' +
                     '<p>' + customMessage + '</p>' +
-                    "<a class = 'btn btn-success' onclick='acceptCookies()'>"+ customAcceptBtn +"</a> " +
+                    "<a class = 'btn btn-success' onclick='acceptCookies(\"" + lang + "\")'>"+ customAcceptBtn +"</a> " +
                     "<a class = 'btn btn-primary' onclick='cookiesMoreInfo()'>"+ customInfoButn +"</a> " +
                     "<a class = 'btn btn-danger' href='"+ declineUrl + "'>"+ customDeclineBtn +"</a>" +
                 '<br /><br /></div>' +
@@ -71,7 +71,7 @@ function showCookiesNotification(customMessage, customAcceptBtn, declineUrl, cus
     else
     {
         loadGA();
-        loadTwitter();
+        loadTwitter(lang);
         loadGPlus();
     }
 }
