@@ -58,14 +58,6 @@
 
 {% endblock %}
 
-{% block javascripts %}
-    <script>
-        loadFacebookCommentBoxJs();
-        var divFbW = $('#fb_comments_box').width();
-        facebookBindResponsive('{{ image.slug }}');
-    </script>
-{% endblock %}
-
 {% block jqueryDR %}
-    fbResponsive('{{ image.slug }}', divFbW);
+    facebookBindResponsive('{{ image.slug }}');
 {% endblock %}

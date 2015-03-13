@@ -4,10 +4,16 @@ function fbResponsive(imgSlug, fb_ct_w) {
 }
 
 function facebookBindResponsive(imgSlug) {
-    $(window).bind("resize", function(){
-        if (divFbW != $('#fb_comments_box').width()) {
-            fbResponsive(imgSlug, divFbW);
-            divFbW = $('#fb_comments_box').width();
-        }
+    loadFacebookCommentBoxJs();
+	sessionStorage.setItem("divFbW", $('#fb_comments_box').width());
+	// Bind mooving event
+	$(window).bind("resize", function(){
+        if (sessionStorage.getItem("divFbW") != $('#fb_comments_box').width()) 
+		{
+			sessionStorage.setItem("divFbW", $('#fb_comments_box').width());
+            fbResponsive(imgSlug, sessionStorage.getItem("divFbW") );
+		}
     });
+	// Shwowing at page loading
+	fbResponsive(imgSlug, sessionStorage.getItem("divFbW") );
 }
