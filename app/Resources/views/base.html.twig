@@ -62,7 +62,7 @@
 
 
             <footer class="modal-footer">
-                <p><a href="{{ path('silent_daily_pics_core_home') }}">{{ site_name }}</a> - {{ site_launch_year }}</p>
+                <p><a href="{{ path('silent_daily_pics_core_home') }}">{{ site_name }}</a> - {%if "now"|date("Y") == site_launch_year %}{{ site_launch_year }}{% else %}{{ site_launch_year }}-{{ "now"|date("Y") }}{% endif %}</p>
                 <p>Ce site utilise <a href="https://github.com/SilentKernel/dailypics_CMS">Daily Pics CMS ({{ site_version }})</a> par <a href="http://silentkernel.fr">SilentKernel</a></p>
                 <p><a href ="{{ path('sonata_admin_redirect') }}">{{ administration_link_string }}</a></p>
             </footer>
