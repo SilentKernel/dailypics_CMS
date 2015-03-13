@@ -23,7 +23,7 @@ parameters:
     site_name_short: "MsI"
     site_domain: "mon-site-image.fr"
     site_logo: "/images/static/logo.jpg"
-    site_version: "0.0.3"
+    site_version: "0.1.0"
     site_facebook_page: "https://www.facebook.com/..."
     bootstrap_template: "//maxcdn.bootstrapcdn.com/bootswatch/3.2.0/superhero/bootstrap.min.css"
     site_launch_year: "2014"
