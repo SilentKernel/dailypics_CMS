@@ -34,13 +34,15 @@ function acceptCookies(lang)
     loadGA();
     loadTwitter(lang);
     loadGPlus();
-    $("#cookie_notification").html("");
+    $("#cookie_notification_panel").fadeOut('slow',function(){
+        $("#cookie_notification").remove();
+    })
 }
 
 function cookiesMoreInfo()
 {
     if (!cookieMoreInfoShown) {
-        $.get( Routing.generate('cookie_warning_more_info',null), function(data) {
+        $.get( Routing.generate('quote_cms_core_cookie_more_infos',null), function(data) {
             $( "#main_container" ).prepend(data);
             cookieMoreInfoShown = true;
             $('#cookiesinfo').modal();
@@ -59,7 +61,7 @@ function showCookiesNotification(customMessage, customAcceptBtn, declineUrl, cus
     {
         $( "#main_container" ).prepend(
             '<div id = "cookie_notification" class = "col-xs-12 col-sm-12 col-md-12 col-lg-12"> ' +
-                '<div class = "panel panel-default text-center"> <br />' +
+                '<div id="cookie_notification_panel" class = "panel panel-default text-center"> <br />' +
                     '<p>' + customMessage + '</p>' +
                     "<a class = 'btn btn-success' onclick='acceptCookies(\"" + lang + "\")'>"+ customAcceptBtn +"</a> " +
                     "<a class = 'btn btn-primary' onclick='cookiesMoreInfo()'>"+ customInfoButn +"</a> " +
