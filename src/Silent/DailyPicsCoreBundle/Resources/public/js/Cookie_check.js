@@ -34,8 +34,9 @@ function acceptCookies(lang)
     loadGA();
     loadTwitter(lang);
     loadGPlus();
-    $("#cookie_notification_panel").fadeOut('slow',function(){
-        $("#cookie_notification").remove();
+    var cookieNotificationPanel = $("#cookie_notification_panel");
+    cookieNotificationPanel.fadeOut('slow',function(){
+        cookieNotificationPanel.remove();
     })
 }
 
@@ -60,15 +61,11 @@ function showCookiesNotification(customMessage, customAcceptBtn, declineUrl, cus
     if (localStorage.getItem(LSCString) != 1)
     {
         $( "#main_container" ).prepend(
-            '<div id = "cookie_notification" class = "col-xs-12 col-sm-12 col-md-12 col-lg-12"> ' +
-                '<div id="cookie_notification_panel" class = "panel panel-default"> '+
-				'<div class = "panel-body> text-center"'+
-                    '<p>' + customMessage + '</p>' +
-                    "<a class = 'btn btn-success' onclick='acceptCookies(\"" + lang + "\")'>"+ customAcceptBtn +"</a> " +
-                    "<a class = 'btn btn-primary' onclick='cookiesMoreInfo()'>"+ customInfoButn +"</a> " +
-                    "<a class = 'btn btn-danger' href='"+ declineUrl + "'>"+ customDeclineBtn +"</a>" +
-                '</div>'+
-			'</div>' +
+            '<div id="cookie_notification_panel" class = "panel panel-default panel-body text-center"> '+
+            '<p>' + customMessage + '</p>' +
+            "<a class = 'btn btn-success' onclick='acceptCookies(\"" + lang + "\")'>"+ customAcceptBtn +"</a> " +
+            "<a class = 'btn btn-primary' onclick='cookiesMoreInfo()'>"+ customInfoButn +"</a> " +
+            "<a class = 'btn btn-danger' href='"+ declineUrl + "'>"+ customDeclineBtn +"</a>" +
             '</div>'
         );
     }
